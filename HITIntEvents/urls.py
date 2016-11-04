@@ -17,10 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from event import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls')),
     # url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
+    url(r'^$', views.index, name='index'),
+    url(r'^column/(?P<column_slug>[^/]+)/$',views.column_detail, name='column'),
+    url(r'^event/(?P<event_slub>[^/]+)/$',views.event_detail, name='event'),
+    url(r'^admin/', include(admin.site.urls)),
 ]
 urlpatterns += staticfiles_urlpatterns()
