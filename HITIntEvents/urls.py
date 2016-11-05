@@ -25,7 +25,7 @@ urlpatterns = [
     # url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
     url(r'^$', views.index, name='index'),
     url(r'^column/(?P<column_slug>[^/]+)/$',views.column_detail, name='column'),
-    url(r'^event/(?P<event_slub>[^/]+)/$',views.event_detail, name='event'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^event/(?P<event_slug>[^/]+)/$',views.event_detail, name='event'),
+    #url(r'^admin/', include(admin.site.urls)),
 ]
 urlpatterns += staticfiles_urlpatterns()
