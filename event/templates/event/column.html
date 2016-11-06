@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ column.name }}
+{% endblock title %}
+
+
+{% block content %}
+<p>栏目名称：{{ column.name }}</p>
+栏目简介：{{ column.info }}
+栏目文章列表：
+<ul>
+        {% for event in column.event_set.all %}
+            <li>
+                <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+            </li>
+
+        {% endfor %}
+</ul>
+{% endblock content %}
