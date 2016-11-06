@@ -8,7 +8,7 @@ from event.models import Column, Event
 def index(request):
     columns=Column.objects.all()
     print("!")
-    return render(request, 'index.html', {'columns':columns})
+    return render(request, 'event/index.html', {'columns':columns})
 
 
 def column_detail(request, column_slug):
