@@ -2,3 +2,6 @@ _Store
 Thumbs.db
 
 .idea
+#ignore all *.pyc files
+*.pyc
+*/__pycache__/
