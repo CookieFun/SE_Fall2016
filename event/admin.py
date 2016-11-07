@@ -6,7 +6,7 @@ from .models import Column, Event
 
 
 class ColumnAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug', 'info',)
+    list_display = ('name', 'slug', 'info', 'nav_display', 'home_display')
 
 
 class EventAdmin(admin.ModelAdmin):
