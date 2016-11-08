@@ -79,9 +79,8 @@
                                 </section>
 						</div>
 					</div>
-                    <div id="div1">
-                        <p>请在此输入正文...</p>
-                    </div>
+                    <div id="div1" style="height: 600px;"><p>请在此输入正文...</p></div>
+                    <input type="button" value="submit" onclick="sub()">
 				</div>
 			</div>
 
@@ -237,13 +236,47 @@
         <script type="text/javascript" src="{% static "editor/js/lib/jquery-1.10.2.min.js" %}"></script>
         <script type="text/javascript" src="{% static "editor/js/wangEditor.min.js" %}"></script>
         <script type="text/javascript">
+            var count=false;
             // 获取元素
             var div = document.getElementById('div1');
             // 生成编辑器
             var editor = new wangEditor(div);
+            editor.config.uploadImgUrl = '/blog/static/files';
+            editor.config.uploadParams = {
+                token: 'abcdefg',
+                user: 'useruu'
+            };
             editor.create();
+            function post(path, params, method) {
+                method = method || "post"; // Set method to post by default if not specified.
+
+                // The rest of this code assumes you are not using a library.
+                // It can be made less wordy if you use one.
+                var form = document.createElement("form");
+                form.setAttribute("method", method);
+                form.setAttribute("action", path);
+
+                for(var key in params) {
+                    if(params.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement("input");
+                        hiddenField.setAttribute("type", "hidden");
+                        hiddenField.setAttribute("name", key);
+                        hiddenField.setAttribute("value", params[key]);
+
+                        form.appendChild(hiddenField);
+                     }
+                }
+                document.body.appendChild(form);
+                form.submit();
+            }
+            function sub() {
+                if (count==false){
+                    post('/blog/post-record/',{ context:editor.$txt.html() });
+                    count=true;
+                }else{}
+
+
+            }
         </script>
-
-
 	</body>
 </html>
