@@ -12,7 +12,7 @@ def redirect(request):
     return render(request, 'add record.html')
 
 
-def handleContext(request):
+def handle_context(request):
     if request.method == 'POST':
         print('here')
         print(request)
@@ -21,7 +21,7 @@ def handleContext(request):
 
 @csrf_exempt
 def receive(request):
-    handleContext(request)
+    handle_context(request)
     return render(request, 'index.html')
 
 
