@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.datastructures import MultiValueDictKeyError
+from django.http import HttpResponse
 import os
-from django.http import HttpResponse,HttpRequest
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
 
 
 # Create your views here.
@@ -31,11 +34,13 @@ def upload(request):
     if request.method == 'POST':
         print('file:')
         print(request)
-        # if request.FILES is not None:
-        #     file = request.FILES[0]
-        #     filename = file.filename
-        #     print(11)
-        #     print(filename)
+        if request.FILES is not None:
+            file = request.FILES.get('uploadFileName')
+            print('trying to save into disk...', file.filename)
+            path = default_storage.save('tmp/'+file.file_name, ContentFile(file.read()))
+            tmp_file = os.path.join(settings.MEDIA_ROOT, path)
         return HttpResponse('upload-success')
     else:
         print('empty')
+        return HttpResponse('upload-fail')
+

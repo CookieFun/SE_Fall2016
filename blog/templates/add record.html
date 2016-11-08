@@ -242,9 +242,13 @@
             // 生成编辑器
             var editor = new wangEditor(div);
             editor.config.uploadImgUrl = '/blog/static/files';
+            editor.config.uploadImgFileName = 'uploadFileName';//origin:wangEditorh5file
             editor.config.uploadParams = {
                 token: 'abcdefg',
                 user: 'useruu'
+            };
+            editor.config.uploadImgFns.onload = function (resultText, xhr) {
+                var originalName = editor.uploadImgOriginalName || '';
             };
             editor.create();
             function post(path, params, method) {
