@@ -36,10 +36,10 @@ def upload(request):
         print(request)
         if request.FILES is not None:
             file = request.FILES.get('uploadFileName')
-            print('trying to save into disk...', file.filename)
-            path = default_storage.save('tmp/'+file.file_name, ContentFile(file.read()))
+            print('trying to save into disk...', file.name)
+            path = default_storage.save('tmp/'+file.name, ContentFile(file.read()))
             tmp_file = os.path.join(settings.MEDIA_ROOT, path)
-        return HttpResponse('upload-success')
+        return HttpResponse('tmp_file')
     else:
         print('empty')
         return HttpResponse('upload-fail')
