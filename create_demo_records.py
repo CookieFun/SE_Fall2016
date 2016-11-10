@@ -16,6 +16,8 @@ def main():
                 content='内容:{} {}'.format(column_name, i)
             )[0]
             event.column.add(c)
+            # for k in event.column.all():
+            #     print(k.name)
 
 
 if __name__ == '__main__':

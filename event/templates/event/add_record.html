@@ -1,13 +1,8 @@
 {% load static %}
 <!DOCTYPE HTML>
-<!--
-	Dopetrope 2.0 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Dopetrope by HTML5 UP</title>
+		<title>国际交流</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -20,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static "css/skel-noscript.css" %}" />
 		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" />
 		<link rel="stylesheet" type="text/css" href="{% static "css/style-desktop.css" %}" />
+        <link rel="stylesheet" type="text/css" href="{% static "editor/css/wangEditor.min.css" %}" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 	</head>
 	<body class="homepage">
@@ -58,37 +54,35 @@
                                                {% endfor %}
 											</ul>
 										</nav>
-
 								</section>
-
 						</div>
 					</div>
-{#					<div class="row">#}
-{#						<div class="12u">#}
-{##}
-{#							<!-- Banner -->#}
-{#								<section id="banner">#}
-{#									<a href="http://facebook.com/DreametryDoodle">#}
-{#										<span class="image image-full"><img src="{% static "images/pic01.jpg" %}" alt="" /></span>#}
-{##}
-{#									</a>#}
-{#								</section>#}
-{##}
-{#						</div>#}
-{#					</div>#}
 				</div>
 			</div>
 
 		<!-- Main Wrapper -->
 			<div id="main-wrapper">
 				<div class="container">
-                    <h2>{{ event.title }}</h2>
-                    </br>
-                    <div id="main">
-                        {{ event.content }}
+					<div class="row">
+						<div class="12u">
+							<!-- Portfolio -->
+								<section>
+									<header class="major">
+										<h2>添加一条记录</h2>
+									</header>
+                                </section>
+						</div>
+                        </div>
+                            <form>
+                                请输入标题: <input type="text" name="name"> <br>
+                                <div id="div1">
+                                    <p>请在此输入正文...</p>
+                                </div>
+                                <input type="submit" value="提交">
+                            </form>
+                        </div>
                     </div>
-
-				</div>
+                </div>
 			</div>
 
 		<!-- Footer Wrapper -->
@@ -96,6 +90,7 @@
 
 				<!-- Footer -->
 					<section id="footer" class="container">
+
 						<div class="row">
 							<div class="12u">
 
@@ -103,7 +98,7 @@
 									<div id="copyright">
 										<ul class="links">
 											<li>&copy; Untitled	</li>
-											<li>Images: <a href="http://facebook.com/DreametryDoodle">Dreametry Doodle</a> + <a href="http://iconify.it">Iconify.it</a></li>
+											<li>Images: <a href="index">Dreametry Doodle</a> + <a href="http://iconify.it">Iconify.it</a></li>
 											<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 										</ul>
 									</div>
@@ -113,6 +108,25 @@
 					</section>
 
 			</div>
+        <script type="text/javascript" src="{% static "editor/js/lib/jquery-1.10.2.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "editor/js/wangEditor.min.js" %}"></script>
+        <script type="text/javascript">
+            // 获取元素
+            var div = document.getElementById('div1');
+            // 生成编辑器
+            var editor = new wangEditor(div);
+            editor.create();
+            $('#btn1').click(function () {
+            // 获取编辑器区域完整html代码
+            var html = editor.$txt.html();
+
+            // 获取编辑器纯文本内容
+            var text = editor.$txt.text();
+
+            // 获取格式化后的纯文本
+            var formatText = editor.$txt.formatText();
+        </script>
+
 
 	</body>
 </html>
