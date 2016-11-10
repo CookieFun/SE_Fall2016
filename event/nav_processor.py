@@ -4,5 +4,4 @@ nav_display_columns = Column.objects.filter(nav_display=True)
 
 
 def nav_column(request):
-    print("pro")
     return {'nav_display_columns': nav_display_columns}
