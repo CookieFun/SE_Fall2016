@@ -1029,7 +1029,23 @@
 	width: 100%;
     font-size: large;
 	background: transparent;
-	color: #afb3b8;
+	color: #8080ff;
+}
+
+.input__field--isao::-webkit-input-placeholder {
+   color: #da7071;
+}
+
+.input__field--isao:-moz-placeholder { /* Firefox 18- */
+   color: #da7071;
+}
+
+.input__field--isao::-moz-placeholder {  /* Firefox 19+ */
+   color: #da7071;
+}
+
+.input__field--isao:-ms-input-placeholder {
+   color: #da7071;
 }
 
 .input__label--isao {

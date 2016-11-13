@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 import os
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
@@ -10,7 +10,7 @@ from blog.models import UploadFile
 from blog.forms import UploadFileForms
 
 
-def redirect(request):
+def enter(request):
     return render(request, 'add record.html')
 
 
@@ -24,7 +24,7 @@ def handle_context(request):
 @csrf_exempt
 def receive(request):
     handle_context(request)
-    return render(request, 'index.html')
+    return HttpResponse('<script>alert(\'Add-record successful\');window.location.href="../"; </script>')
 
 
 @csrf_exempt

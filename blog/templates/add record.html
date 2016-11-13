@@ -15,30 +15,40 @@
 				<div class="12u">
 						<section>
 							<header class="major">
-								<h2>添加一条记录</h2>
+								<h2 style="color: #0f0fff;">Add a piece of record here</h2>
 							</header>
                         </section>
 				</div>
 			</div>
             <div class="row">
-				<div class="12u">
+				<div class="6u">
                     <section class="content bgcolor-8">
                         <span class="input input--isao">
                             <input class="input__field input__field--isao" type="text" id="input-38">
-                            <label class="input__label input__label--isao" for="input-38" data-content="First Name">
-                                <span class="input__label-content input__label-content--isao">First Name</span>
+                            <label class="input__label input__label--isao" for="input-38" data-content="Type your title here">
+                                <span class="input__label-content input__label-content--isao">Title</span>
                             </label>
                         </span>
                         <span class="input input--isao">
-                            <input class="input__field input__field--isao" type="text" id="input-39">
-                            <label class="input__label input__label--isao" for="input-39" data-content="Middle Name">
-                                <span class="input__label-content input__label-content--isao">Middle Name</span>
+                            <input class="input__field input__field--isao" type="text" id="input-39" placeholder="2016.11.11">
+                            <label class="input__label input__label--isao" for="input-39" data-content="date of format &quot;2016.11.11&quot;">
+                                <span class="input__label-content input__label-content--isao">Date</span>
+                            </label>
+                        </span>
+                    </section>
+                </div>
+                <div class="6u">
+                    <section class="content bgcolor-8">
+                        <span class="input input--isao">
+                            <input class="input__field input__field--isao" type="text" id="input-38">
+                            <label class="input__label input__label--isao" for="input-38" data-content="Place">
+                                <span class="input__label-content input__label-content--isao">Place</span>
                             </label>
                         </span>
                         <span class="input input--isao">
-                            <input class="input__field input__field--isao" type="text" id="input-40">
-                            <label class="input__label input__label--isao" for="input-40" data-content="Last Name">
-                                <span class="input__label-content input__label-content--isao">Last Name</span>
+                            <input class="input__field input__field--isao" type="text" id="input-38">
+                            <label class="input__label input__label--isao" for="input-38" data-content="People">
+                                <span class="input__label-content input__label-content--isao">People</span>
                             </label>
                         </span>
                     </section>
@@ -46,9 +56,14 @@
 			</div>
             <div class="row">
 				<div class="12u">
-                    <div id="div1" style="height: 600px;"><p>请在此输入正文...</p></div>				</div>
+                    <div id="div1" style="height: 600px;"><p>请在此输入正文【可有副标题，但是不要包含主标题】...</p></div>
+                </div>
 			</div>
-            <input type="button" value="submit" onclick="sub()">
+            <div class="row">
+				<div class="12u">
+                    <a href="#" class="button" onclick="sub()" style="text-align: center; display: block; width: 30%; margin: 1em auto 1em">Submit</a>
+                </div>
+            </div>
 		</div>
 	</div>
 
@@ -95,46 +110,10 @@
         }
         function sub() {
             if (count==false){
-                post('/blog/post-record/',{ context:editor.$txt.html() });
+                post('/post-record/',{ context:editor.$txt.html() });
                 count=true;
             }else{}
 
-
         }
     </script>
-    <script>
-			(function() {
-				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-				if (!String.prototype.trim) {
-					(function() {
-						// Make sure we trim BOM and NBSP
-						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-						String.prototype.trim = function() {
-							return this.replace(rtrim, '');
-						};
-					})();
-				}
-
-				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
-					// in case the input is already filled..
-					if( inputEl.value.trim() !== '' ) {
-						classie.add( inputEl.parentNode, 'input--filled' );
-					}
-
-					// events:
-					inputEl.addEventListener( 'focus', onInputFocus );
-					inputEl.addEventListener( 'blur', onInputBlur );
-				} );
-
-				function onInputFocus( ev ) {
-					classie.add( ev.target.parentNode, 'input--filled' );
-				}
-
-				function onInputBlur( ev ) {
-					if( ev.target.value.trim() === '' ) {
-						classie.remove( ev.target.parentNode, 'input--filled' );
-					}
-				}
-			})();
-		</script>
 {% endblock %}
