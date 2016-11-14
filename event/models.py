@@ -7,6 +7,8 @@ from django.utils.encoding import python_2_unicode_compatible
 
 from django.core.urlresolvers import reverse
 
+from DjangoUeditor.models import UEditorField
+
 
 # Create your models here.
 @python_2_unicode_compatible
@@ -43,7 +45,9 @@ class Event(models.Model):
         return reverse('event', args=(self.id, self.slug,))
 
     author = models.CharField('作者', max_length=256, blank=True)
-    content = models.TextField('内容', default='', blank=True)
+    content = UEditorField('内容', height=300, width=1000,
+        default=u'', blank=True, imagePath="uploads/images/",
+        toolbars='besttome', filePath='uploads/files/')
     pub_time = models.DateTimeField('发表时间', auto_now_add=True, editable=True)
     upd_time = models.DateTimeField('更新时间', auto_now=True, null=True)
 

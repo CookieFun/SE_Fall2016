@@ -39,43 +39,6 @@
 									<!-- Nav -->
 										<nav id="nav">
 											<ul>
-<<<<<<< HEAD
-												{% if nav_show == 'home' %}
-                                                    <li class="current_page_item">
-                                                {% else %}
-                                                    <li>
-                                                {% endif %}
-                                                        <a href="/">首页</a>
-                                                    </li>
-                                               {% for col in  nav_display_columns %}
-                                                   {% if col.name == column.name %}
-                                                        <li class="current_page_item">
-                                                   {% else %}
-                                                       <li>
-                                                   {% endif %}
-{#                                                   <li>#}
-                                                       <a href="{{ col.get_absolute_url }}"> {{ col.name }} </a>
-
-                                                   </li>
-                                               {% endfor %}
-{#												<li>#}
-{#													<a href="">Dropdown</a>#}
-{#													<ul>#}
-{#														<li><a href="#">Lorem ipsum dolor</a></li>#}
-{#														<li><a href="#">Magna phasellus</a></li>#}
-{#														<li><a href="#">Etiam dolore nisl</a></li>#}
-{#														<li>#}
-{#															<a href="">Phasellus consequat</a>#}
-{#															<ul>#}
-{#																<li><a href="#">Magna phasellus</a></li>#}
-{#																<li><a href="#">Etiam dolore nisl</a></li>#}
-{#																<li><a href="#">Veroeros feugiat</a></li>#}
-{#															</ul>#}
-{#														</li>#}
-{#														<li><a href="#">Veroeros feugiat</a></li>#}
-{#													</ul>#}
-{#												</li>#}
-=======
 												<li class="current_page_item"><a href="index">主页</a></li>
 												<li>
 													<a href="">Dropdown</a>
@@ -97,7 +60,6 @@
 												<li><a href="right-sidebar">Right Sidebar</a></li>
 												<li><a href="add-record">Add Record</a></li>
 												<li><a href="no-sidebar.html">No Sidebar</a></li>
->>>>>>> 065e82d6597ec3b2516a98112d7797bded6e2881
 											</ul>
 										</nav>
 
@@ -105,72 +67,9 @@
 
 						</div>
 					</div>
-<<<<<<< HEAD
-					<div class="row">
-						<div class="12u">
-
-							<!-- Banner -->
-								<section id="banner">
-									<a href="http://facebook.com/DreametryDoodle">
-										<span class="image image-full"><img src="{% static "images/pic01.jpg" %}" alt="" /></span>
-
-									</a>
-								</section>
-
-						</div>
-					</div>
-{#					<div class="row">#}
-{#						<div class="12u">#}
-{##}
-{#							<!-- Intro -->#}
-{#								<section id="intro">#}
-{##}
-{#									<div>#}
-{#										<div class="row">#}
-{#											<div class="4u">#}
-{#												<section class="first">#}
-{#													<span class="pennant"><span class="icon64 icon64-1"></span></span>#}
-{#													<header>#}
-{#														<h2>Ipsum consequat</h2>#}
-{#													</header>#}
-{#													<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>#}
-{#												</section>#}
-{#											</div>#}
-{#											<div class="4u">#}
-{#												<section class="middle">#}
-{#													<span class="pennant pennant-alt"><span class="icon64 icon64-2"></span></span>#}
-{#													<header>#}
-{#														<h2>Magna etiam dolor</h2>#}
-{#													</header>#}
-{#													<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>#}
-{#												</section>#}
-{#											</div>#}
-{#											<div class="4u">#}
-{#												<section class="last">#}
-{#													<span class="pennant pennant-alt2"><span class="icon64 icon64-3"></span></span>#}
-{#													<header>#}
-{#														<h2>Tempus adipiscing</h2>#}
-{#													</header>#}
-{#													<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>#}
-{#												</section>#}
-{#											</div>#}
-{#										</div>#}
-{#									</div>#}
-{##}
-{#									<div class="actions">#}
-{#										<a href="#" class="button button-big">Get Started</a>#}
-{#										<a href="#" class="button button-alt button-big">Learn More</a>#}
-{#									</div>#}
-{##}
-{#								</section>#}
-{##}
-{#						</div>#}
-{#					</div>#}
-=======
 					{% block header %}
 
 					{% endblock %}
->>>>>>> 065e82d6597ec3b2516a98112d7797bded6e2881
 				</div>
 			</div>
 		<!-- Main Wrapper -->

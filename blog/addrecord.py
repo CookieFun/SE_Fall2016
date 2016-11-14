@@ -5,6 +5,7 @@ import os
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.conf import settings
+from event.models import Column,Event
 
 from blog.models import UploadFile
 from blog.forms import UploadFileForms
@@ -19,6 +20,11 @@ def handle_context(request):
         print('here')
         print(request)
         print(request.POST['context'])
+        Event.objects.get_or_create(
+            title='{}'.format('1'),
+            slug='event_{}'.format('123'),
+            content=request.POST['context']
+        )
 
 
 @csrf_exempt
