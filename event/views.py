@@ -12,23 +12,22 @@ def index(request):
     return render(request, 'event/index.html', {
         'home_display_columns': home_display_columns,
         'nav_display_columns': nav_display_columns,
-        'nav_show': 'home',
+        'corrent': 1,
     })
 
 
 def column_detail(request, column_slug):
     column = Column.objects.get(slug=column_slug)
-    return render(request, 'event/column.html', {'column': column, 'nav_show': column.name, })
+    return render(request, 'event/column.html', {'column': column, 'current': 2, })
 
 
 def event_detail(request, id, event_slug):
     at_home = True
     event = Event.objects.get(id=id)
-    print(event.content)
     if event_slug != event.slug:
         return redirect(event, permanent=True)
 
-    return render(request, 'event/event.html', {'event': event, 'nav_show': event.column.all()[0].name})
+    return render(request, 'event/event.html', {'event': event, 'current': 2, })
 
 
 def add_event(request):

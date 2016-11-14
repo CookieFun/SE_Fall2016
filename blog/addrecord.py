@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 import os
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.conf import settings
-from event.models import Column,Event
+from event.models import Column, Event
 
 from blog.models import UploadFile
 from blog.forms import UploadFileForms
 
 
 def enter(request):
-    return render(request, 'add record.html')
+    return render(request, 'add record.html', {
+        'current': 3,
+    })
 
 
 def handle_context(request):
@@ -52,4 +54,3 @@ def upload(request):
         form = UploadFileForms()
         print('empty')
         return HttpResponse('upload-fail')
-
