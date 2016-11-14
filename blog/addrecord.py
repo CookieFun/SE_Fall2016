@@ -1,17 +1,16 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.utils.datastructures import MultiValueDictKeyError
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 import os
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.conf import settings
 
+from blog.models import UploadFile
+from blog.forms import UploadFileForms
 
-# Create your views here.
 
-
-def redirect(request):
+def enter(request):
     return render(request, 'add record.html')
 
 
@@ -25,7 +24,7 @@ def handle_context(request):
 @csrf_exempt
 def receive(request):
     handle_context(request)
-    return render(request, 'index.html')
+    return HttpResponse('<script>alert(\'Add-record successful\');window.location.href="../"; </script>')
 
 
 @csrf_exempt
@@ -34,13 +33,17 @@ def upload(request):
     if request.method == 'POST':
         print('file:')
         print(request)
-        if request.FILES is not None:
-            file = request.FILES.get('uploadFileName')
-            print('trying to save into disk...', file.name)
-            path = default_storage.save('tmp/'+file.name, ContentFile(file.read()))
-            tmp_file = os.path.join(settings.MEDIA_ROOT, path)
+        print('trying to save')
+        newfile = UploadFile(upload_file=request.FILES['uploadFileName'])
+        newfile.save()
+        # if request.FILES is not None:
+        #     file = request.FILES.get('uploadFileName')
+        #     print('trying to save into disk...', file.name)
+        #     path = default_storage.save('tmp/'+file.name, ContentFile(file.read()))
+        #     tmp_file = os.path.join(settings.MEDIA_ROOT, path)
         return HttpResponse('tmp_file')
     else:
+        form = UploadFileForms()
         print('empty')
         return HttpResponse('upload-fail')
 

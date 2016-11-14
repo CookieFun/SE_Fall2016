@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^', include('blog.urls')),
     # url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
-    url(r'^$', views.index, name='index'),
+    # url(r'^$', views.index, name='index'),
     url(r'^column/(?P<column_slug>[^/]+)/$',views.column_detail, name='column'),
     url(r'^event/(?P<id>\d+)/(?P<event_slug>[^/]+)/$',views.event_detail, name='event'),
     url(r'^add/', views.add_event, name='add'),

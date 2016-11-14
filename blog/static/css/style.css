@@ -371,6 +371,7 @@
 			
 				ul.dates .date strong
 				{
+					color: #fff;
 					display: block;
 					font-size: 1.75em;
 					padding-top: 0.15em;
