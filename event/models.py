@@ -43,11 +43,12 @@ class Event(models.Model):
     def get_absolute_url(self):
         return reverse('event', args=(self.id, self.slug,))
 
-    event_time = models.DateTimeField('时间', editable=True, null=True)
+    event_time = models.DateTimeField('时间', editable=True, null=True, blank=True)
     place = models.CharField('地点', max_length=256, blank=True)
     speaker = models.CharField('嘉宾', max_length=256, blank=True)
     
     author = models.CharField('作者', max_length=256, blank=True)
+    abstract = models.CharField('简介', max_length=256, blank=True)
     content = UEditorField('内容', height=300, width=1000,
         default=u'', blank=True, imagePath="uploads/images/",
         toolbars='besttome', filePath='uploads/files/')

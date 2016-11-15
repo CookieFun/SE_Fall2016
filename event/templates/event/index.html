@@ -1,4 +1,5 @@
 {% extends "base_index.html" %}
+{% load static %}
 
 {% block news %}
     <ul class="dates">
@@ -36,5 +37,29 @@
 	    <a href="/column/event" class="button button-big">更多活动</a>
     </div>
 
-
 {% endblock events %}
+
+{% block past_events %}
+<div class="row">
+    {% for event in past_events %}
+        <div class="4u">
+            <section class="box">
+                <a href="index" class="image image-full"><img src="{% static "images/pic07.jpg" %}" alt="" /></a>
+                <header>
+                    <h3>{{ event.title }}</h3>
+                </header>
+                <p>{{ event.abstract }}</p>
+                <footer>
+                    <a href="{{ event.get_absolute_url }}" class="button button-alt">活动详情</a>
+                </footer>
+            </section>
+        </div>
+    {% endfor %}
+</div>
+{% endblock past_events %}
+
+
+
+
+
+
