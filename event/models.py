@@ -39,7 +39,7 @@ class Event(models.Model):
     id = models.AutoField(primary_key=True)
     column = models.ManyToManyField(Column, verbose_name='归属栏目')
     title = models.CharField('标题', max_length=256)
-    slug = models.CharField('网址', max_length=256, db_index=True)
+    slug = models.CharField('网址', max_length=256, db_index=True, default='event')
 
     def get_absolute_url(self):
         return reverse('event', args=(self.id, self.slug,))
@@ -48,8 +48,14 @@ class Event(models.Model):
     content = UEditorField('内容', height=300, width=1000,
         default=u'', blank=True, imagePath="uploads/images/",
         toolbars='besttome', filePath='uploads/files/')
+
     pub_time = models.DateTimeField('发表时间', auto_now_add=True, editable=True)
     upd_time = models.DateTimeField('更新时间', auto_now=True, null=True)
+
+    def get_month(self):
+        mon = {1: 'Jan', 2: 'Feb', 3: 'Mat', 4: 'Apr', 5: 'May', 6: 'Jun',
+               7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'}
+        return mon[self.pub_time.month]
 
     def __str__(self):
         return self.title

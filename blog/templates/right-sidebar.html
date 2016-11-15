@@ -16,7 +16,9 @@
 										
 										<!-- Content -->
 											<article class="box is-post">
-												<a href="http://facebook.com/DreametryDoodle" class="image image-full"><img src="{% static "images/pic01.jpg" %}" alt="" /></a>
+                                                {% block banner %}
+												    <a href="http://facebook.com/DreametryDoodle" class="image image-full"><img src="{% static "images/pic01.jpg" %}" alt="" /></a>
+                                                {% endblock %}
 												<header>
                                                     {% block title %}
                                                         <h2>Right sidebar</h2>

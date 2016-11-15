@@ -1,15 +1,19 @@
-{% extends "base.html" %}
-{% block main %}
+{% extends "right-sidebar.html" %}
+{% block title %}
+    <h2>{{ column.name }}</h2>
+{% endblock %}
+{% block content %}
 
 <!-- Main Wrapper -->
     <div id="main-wrapper">
         <div class="container">
-            <h2>栏目名称：{{ column.name }}</h2>
-            栏目简介：{{ column.info }}
-            <ul>
+            <p><b>{{ column.info }}</b></p>
+            <ul class="dates">
                 {% for event in column.event_set.all %}
                     <li>
-                        <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+                        <span class="date">{{ event.get_month }} <strong color="#fff">{{ event.upd_time.day }}</strong></span>
+                        <h3><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h3>
+                        <p>{{ event.author }}</p>
                     </li>
 
                 {% endfor %}
@@ -19,3 +23,9 @@
     </div>
 
 {% endblock %}
+
+<li>
+    <span class="date">Jan <strong color="#fff">27</strong></span>
+    <h3><a href="#">Lorem dolor sit amet veroeros</a></h3>
+    <p>Ipsum dolor sit amet veroeros consequat blandit ipsum phasellus lorem consequat etiam.</p>
+</li>
