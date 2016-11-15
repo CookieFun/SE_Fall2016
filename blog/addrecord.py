@@ -12,7 +12,7 @@ from blog.forms import UploadFileForms
 
 
 def enter(request):
-    return render(request, 'add record.html', {
+    return render(request, 'add_record.html', {
         'current': 3,
     })
 
@@ -22,6 +22,9 @@ def handle_context(request):
         print('here')
         print(request)
         print(request.POST['context'])
+        print(request.POST['title'], request.POST['date'],
+              request.POST['place'], request.POST['people'],
+              request.POST['column'])
         Event.objects.get_or_create(
             title='{}'.format('1'),
             slug='event_{}'.format('123'),

@@ -1,0 +1,37 @@
+{% extends "base_index.html" %}
+
+{% block news %}
+<ul class="dates">
+	<h2>新闻</h2>
+    {% for event in recent_news %}
+        <li>
+            <span class="date">{{ event.get_month }} <strong color="#fff">{{ event.upd_time.day }}</strong></span>
+            <h3><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h3>
+            <!-- <p>{{ event.author }}</p> -->
+        </li>
+
+    {% endfor %}
+</ul>
+<div class="actions">
+	<a href="/column/news" class="button button-big">更多新闻</a>
+</div>
+{% endblock news %}
+
+{% block events %}
+<ul class="dates">
+	<h2>近期活动</h2>
+    {% for event in recent_events %}
+        <li>
+            <span class="date">{{ event.get_month }} <strong color="#fff">{{ event.upd_time.day }}</strong></span>
+            <h3><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h3>
+            <p>{{ event.event_time }}</p>
+            <p>{{ event.place }}</p>
+            <p>{{ event.speaker }}</p>
+        </li>
+
+    {% endfor %}
+</ul>
+<div class="actions">
+	<a href="/column/events" class="button button-big">更多活动</a>
+</div>
+{% endblock events %}
