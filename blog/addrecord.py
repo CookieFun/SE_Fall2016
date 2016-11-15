@@ -24,7 +24,7 @@ def handle_context(request):
         print(request.POST['context'])
         print(request.POST['title'], request.POST['date'],
               request.POST['place'], request.POST['people'],
-              request.POST['col'])
+              request.POST['column'])
         Event.objects.get_or_create(
             title='{}'.format('1'),
             slug='event_{}'.format('123'),
