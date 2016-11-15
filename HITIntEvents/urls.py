@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+# -*- coding:UTF-8 -*-
+
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
@@ -32,8 +34,7 @@ urlpatterns = [
     # url(r'^$', views.index, name='index'),
     url(r'^column/(?P<column_slug>[^/]+)/$',views.column_detail, name='column'),
     url(r'^event/(?P<id>\d+)/(?P<event_slug>[^/]+)/$',views.event_detail, name='event'),
-    url(r'^allevents/',views.all_events, name='allevents'),
-    #后台编辑器
+    url(r'^allevents/', views.all_events, name='allevents'),
     url(r'^ueditor/', include('DjangoUeditor.urls')),
     #url(r'^admin/', include(admin.site.urls)),
 ]
