@@ -1,7 +1,6 @@
 {% extends "base_index.html" %}
 
 {% block news %}
-<div class="container">
     <ul class="dates">
         <h2>新闻</h2>
         {% for event in recent_news %}
@@ -15,22 +14,19 @@
     <div class="actions">
 	<a href="/column/news" class="button button-big">更多新闻</a>
     </div>
-</div>
 
 {% endblock news %}
 
 {% block events %}
-<div class="container">
-
     <ul class="dates">
         <h2>近期活动</h2>
         {% for event in recent_events %}
             <li>
                 <span class="date">{{ event.get_month }} <strong color="#fff">{{ event.upd_time.day }}</strong></span>
                 <h3><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h3>
-                <p>{{ event.speaker }}
-                   {{ event.event_time }}
-                   {{ event.place }}</p>
+                <p>{{ event.speaker }}</p>
+                <p>{{ event.event_time }}</p>
+                <p>{{ event.place }}</p>
 
             </li>
             </br>
@@ -39,7 +35,6 @@
     <div class="actions">
 	    <a href="/column/event" class="button button-big">更多活动</a>
     </div>
-</div>
 
 
 {% endblock events %}
