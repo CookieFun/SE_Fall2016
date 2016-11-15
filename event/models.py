@@ -55,10 +55,16 @@ class Event(models.Model):
     pub_time = models.DateTimeField('发表时间', auto_now_add=True, editable=True)
     upd_time = models.DateTimeField('更新时间', auto_now=True, null=True)
 
+    vis_count = models.IntegerField('访问次数', default=0, editable=False)
+
     def get_month(self):
         mon = {1: 'Jan', 2: 'Feb', 3: 'Mat', 4: 'Apr', 5: 'May', 6: 'Jun',
                7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'}
         return mon[self.pub_time.month]
+
+    def visit(self):
+        self.vis_count=self.vis_count+1
+        self.save()
 
     def __str__(self):
         return self.title

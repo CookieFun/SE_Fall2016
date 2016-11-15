@@ -24,3 +24,13 @@
         <a href="/allevents" class="button button-alt">更多新闻</a>
     </footer>
 {% endblock %}
+{% block right-down %}
+<header>
+    <h3>热门文章</h3>
+</header>
+    {% for news in rightdown %}
+        <li>
+            <h1><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h1>
+        </li>
+    {% endfor %}
+{% endblock %}

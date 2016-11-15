@@ -17,6 +17,7 @@
                         <h3><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h3>
                         <p>{{ event.author }}</p>
                     </li>
+                    </br>
                 {% endfor %}
             </ul>
 
@@ -29,13 +30,25 @@
     <a href='#' class="image image-full"><img src="{% static "images/pic09.jpg" %}" alt="" /></a>
     <header>
         <h3>近期新闻</h3>
+    </header>
         {% for news in rightup %}
             <li>
                 <h1><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h1>
             </li>
         {% endfor %}
-    </header>
+
     <footer>
         <a href="/allevents" class="button button-alt">更多新闻</a>
     </footer>
+{% endblock %}
+
+{% block right-down %}
+<header>
+    <h3>热门文章</h3>
+</header>
+    {% for news in rightdown %}
+        <li>
+            <h1><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h1>
+        </li>
+    {% endfor %}
 {% endblock %}

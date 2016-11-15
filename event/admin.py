@@ -10,7 +10,7 @@ class ColumnAdmin(admin.ModelAdmin):
 
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'author', 'pub_time', 'upd_time')
+    list_display = ('title', 'slug', 'author', 'pub_time', 'upd_time', 'vis_count')
 
 
 admin.site.register(Column, ColumnAdmin)
