@@ -5,6 +5,7 @@
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static "editor/css/wangEditor.min.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "css/component.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/add-record-radio.css" %}" />
 {% endblock %}
 
 {% block main %}
@@ -20,6 +21,37 @@
                         </section>
 				</div>
 			</div>
+            <div class="row">
+                <div class="12u">
+                    <div class="radiocontainer">
+                        <h2>选择栏目</h2>
+
+                        <ul>
+                            <li>
+                            <input type="radio" id="f-option" name="selector">
+                            <label for="f-option">栏目1</label>
+
+                            <div class="check"></div>
+                          </li>
+
+                          <li>
+                            <input type="radio" id="s-option" name="selector">
+                            <label for="s-option">栏目2</label>
+
+                            <div class="check"><div class="inside"></div></div>
+                          </li>
+
+                          <li>
+                            <input type="radio" id="t-option" name="selector">
+                            <label for="t-option">栏目3</label>
+
+                            <div class="check"><div class="inside"></div></div>
+                          </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
             <div class="row">
 				<div class="6u">
                     <section class="content bgcolor-8">
@@ -54,6 +86,8 @@
                     </section>
                 </div>
 			</div>
+
+
             <div class="row">
 				<div class="12u">
                     <div id="div1" style="height: 600px;"><p>请在此输入正文【可有副标题，但是不要包含主标题】...</p></div>
