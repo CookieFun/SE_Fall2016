@@ -30,8 +30,8 @@ urlpatterns = [
     # url(r'^$', views.index, name='index'),
     url(r'^column/(?P<column_slug>[^/]+)/$',views.column_detail, name='column'),
     url(r'^event/(?P<id>\d+)/(?P<event_slug>[^/]+)/$',views.event_detail, name='event'),
-    url(r'^add/', views.add_event, name='add'),
-    #后台编辑器
+    # url(r'^add/', views.add_event, name='add'),
+
     url(r'^ueditor/', include('DjangoUeditor.urls')),
     #url(r'^admin/', include(admin.site.urls)),
 ]
