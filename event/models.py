@@ -66,3 +66,4 @@ class Event(models.Model):
     class Meta:
         verbose_name = '事件'
         verbose_name_plural = '事件'
+        ordering = ['-pub_time']

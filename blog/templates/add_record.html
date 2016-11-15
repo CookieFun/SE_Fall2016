@@ -62,8 +62,8 @@
                             </label>
                         </span>
                         <span class="input input--isao">
-                            <input class="input__field input__field--isao" type="text" id="input-2.1" placeholder="2016.11.11">
-                            <label class="input__label input__label--isao" for="input-39" data-content="日期格式 &quot;2016.11.11&quot;">
+                            <input class="input__field input__field--isao" type="text" id="input-2.1" placeholder="2016-11-11">
+                            <label class="input__label input__label--isao" for="input-39" data-content="日期格式 &quot;2016-11-11&quot;">
                                 <span class="input__label-content input__label-content--isao">日期</span>
                             </label>
                         </span>
@@ -154,7 +154,8 @@
                 var place=document.getElementById("input-1.2").value;
                 var people=document.getElementById("input-2.2").value;
                 post('/post-record/',{ context:editor.$txt.html(),
-                    column:col, title:title, date:date, place:place, people:people});
+                    column:col,
+                    title:title, date:date, place:place, people:people});
                 count=true;
             }else{}
 

@@ -23,17 +23,20 @@ def handle_context(request):
         print(request)
         print(request.POST['context'])
         print(request.POST['title'], request.POST['date'],
-              request.POST['place'], request.POST['people'],
-              request.POST['column'])
+              request.POST['place'], request.POST['people'])
         Event.objects.get_or_create(
-            title='{}'.format('1'),
-            slug='event_{}'.format('123'),
+            title=request.POST['title'],
+            event_time = request.POST['date'],
+            place=request.POST['place'],
+            speaker=request.POST['people'],
+            slug='event',
             content=request.POST['context']
         )
 
 
 @csrf_exempt
 def receive(request):
+    print("receive")
     handle_context(request)
     return HttpResponse('<script>alert(\'Add-record successful\');window.location.href="../"; </script>')
 
