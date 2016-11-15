@@ -12,7 +12,7 @@ from blog.forms import UploadFileForms
 
 
 def enter(request):
-    return render(request, 'add_record.html', {
+    return render(request, 'add record.html', {
         'current': 3,
     })
 
