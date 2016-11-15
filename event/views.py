@@ -9,9 +9,15 @@ from event import form
 def index(request):
     home_display_columns = Column.objects.filter(home_display=True)
     nav_display_columns = Column.objects.filter(nav_display=True)
+    column_news = Column.objects.get(slug='news')
+    column_events = Column.objects.get(slug='events')
+    recent_news = column_news.event_set.all().order_by('-pub_time')[:5]
+    recent_events = column_events.event_set.all().order_by('-pub_time')[:5]
     return render(request, 'event/index.html', {
         'home_display_columns': home_display_columns,
         'nav_display_columns': nav_display_columns,
+        'recent_news': recent_news,
+        'recent_events': recent_events,
         'corrent': 1,
     })
 

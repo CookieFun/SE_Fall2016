@@ -25,6 +25,8 @@ from DjangoUeditor import urls as DjangoUeditor_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+    url(r'^index$', views.index, name='index'),
     url(r'^', include('blog.urls')),
     # url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_URL}),
     # url(r'^$', views.index, name='index'),
