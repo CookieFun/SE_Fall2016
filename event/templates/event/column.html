@@ -1,4 +1,5 @@
 {% extends "right-sidebar.html" %}
+{% load static %}
 {% block title %}
     <h2>{{ column.name }}</h2>
 {% endblock %}
@@ -6,10 +7,11 @@
 
 <!-- Main Wrapper -->
     <div id="main-wrapper">
+        <p>{{ column.info }}</p>
         <div class="container">
-            <p><b>{{ column.info }}</b></p>
+
             <ul class="dates">
-                {% for event in column.event_set.all %}
+                {% for event in allevent %}
                     <li>
                         <span class="date">{{ event.get_month }} <strong color="#fff">{{ event.upd_time.day }}</strong></span>
                         <h3><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h3>
@@ -24,8 +26,17 @@
 
 {% endblock %}
 
-<li>
-    <span class="date">Jan <strong color="#fff">27</strong></span>
-    <h3><a href="#">Lorem dolor sit amet veroeros</a></h3>
-    <p>Ipsum dolor sit amet veroeros consequat blandit ipsum phasellus lorem consequat etiam.</p>
-</li>
+{% block right-up %}
+    <a href='#' class="image image-full"><img src="{% static "images/pic09.jpg" %}" alt="" /></a>
+    <header>
+        <h3>近期新闻</h3>
+        {% for news in rightup %}
+            <li>
+                <h1><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h1>
+            </li>
+        {% endfor %}
+    </header>
+    <footer>
+        <a href="/allevents" class="button button-alt">更多新闻</a>
+    </footer>
+{% endblock %}

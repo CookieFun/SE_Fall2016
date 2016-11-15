@@ -9,3 +9,18 @@
         {{ event.content | safe }}
     </div>
 {% endblock content %}
+
+{% block right-up %}
+    <a href='#' class="image image-full"><img src="{% static "images/pic09.jpg" %}" alt="" /></a>
+    <header>
+        <h3>近期新闻</h3>
+        {% for news in rightup %}
+            <li>
+                <h1><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></h1>
+            </li>
+        {% endfor %}
+    </header>
+    <footer>
+        <a href="/allevents" class="button button-alt">更多新闻</a>
+    </footer>
+{% endblock %}
